@@ -1,0 +1,21 @@
+/* What does the app's SQL look like? */
+
+CREATE TABLE user_id (user_id INTEGER PRIMARY KEY AUTOINCREMENT, first_name TEXT, last_name TEXT);
+
+CREATE TABLE weight (user_id INTEGER PRIMARY KEY, weight INTEGER);
+
+INSERT INTO user_id (first_name, last_name) VALUES ("Abigail", "Schultz");
+INSERT INTO user_id (first_name, last_name) VALUES ("Patsy", "Klein");
+INSERT INTO user_id (first_name, last_name) VALUES ("Samantha", "Peterson");
+
+INSERT INTO weight VALUES (3, 134);
+INSERT INTO weight VALUES (2, 400);
+INSERT INTO weight VALUES (1, 178);
+
+SELECT * FROM user_id;
+SELECT * FROM weight;
+
+UPDATE weight SET weight = 140 WHERE user_id = 3;
+DELETE FROM user_id WHERE first_name = "Patsy";
+
+SELECT * FROM user_id;
