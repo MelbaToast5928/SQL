@@ -1,0 +1,21 @@
+/* Create table about the people and what they do here */
+CREATE TABLE movie_stars (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, birthdate INTEGER, film TEXT);
+
+INSERT INTO movie_stars(name, birthdate, film) VALUES ("Keanu Reeves", 1964, "Matrix");
+INSERT INTO movie_stars(name, birthdate, film) VALUES ("Ryan Reynolds", 1976, "Deadpool");
+INSERT INTO movie_stars(name, birthdate, film) VALUES ("Saiorse Ronan", 1994, "Lovely Bones");
+INSERT INTO movie_stars(name, birthdate, film) VALUES ("Christina Ricci", 1980, "Matrix");
+INSERT INTO movie_stars(name, birthdate, film) VALUES ("Priyanka Chopra", 1982, "Matrix");
+
+CREATE TABLE philanthropy (id INTEGER PRIMARY KEY AUTOINCREMENT, program TEXT, members INTEGER);
+
+INSERT INTO philanthropy(program, members) VALUES ("Big Brothers Big Sisters", 1);
+INSERT INTO philanthropy(program, members) VALUES ("Big Brothers Big Sisters", 5);
+INSERT INTO philanthropy(program, members) VALUES ("Oil Clean", 3);
+INSERT INTO philanthropy(program, members) VALUES ("No Marry", 4);
+INSERT INTO philanthropy(program, members) VALUES ("No Marry", 5);
+
+SELECT * FROM movie_stars ORDER BY birthdate DESC;
+SELECT * FROM philanthropy ORDER BY program;
+
+SELECT philanthropy.program, movie_stars.name FROM philanthropy JOIN movie_stars ON philanthropy.members = movie_stars.id;
