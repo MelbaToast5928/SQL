@@ -1,0 +1,23 @@
+CREATE TABLE sports_store (sku INTEGER, name TEXT, count INTEGER, price INTEGER, aisle INTEGER);
+INSERT INTO sports_store VALUES (1, "basketball", 10, "9.99", 30);
+INSERT INTO sports_store VALUES (2, "baseball", 20, "10.99", 31);
+INSERT INTO sports_store VALUES (3, "volleyball", 30, "11.99", 32);
+INSERT INTO sports_store VALUES (4, "racketball", 40, "12.99",33);
+INSERT INTO sports_store VALUES (5, "shoes", 50, "13.99", 30);
+INSERT INTO sports_store VALUES (6, "gloves", 5, "14.99", 31);
+INSERT INTO sports_store VALUES (7, "football",50, "9.99", 34);
+INSERT INTO sports_store VALUES (8, "mouth guard", 7, "13.99", 30);
+INSERT INTO sports_store VALUES (9, "knee pads", 49, "10.99", 30);
+INSERT INTO sports_store VALUES (10, "bat", 20, "21.99", 31);
+INSERT INTO sports_store VALUES (11, "rock tape", 25, "5.99", 32);
+INSERT INTO sports_store VALUES (12, "shorts", 100, "19.99", 32);
+INSERT INTO sports_store VALUES (13,
+"rackets", 90, "29.99",33);
+INSERT INTO sports_store VALUES (14, "nets", 200, "2.99", 30);
+INSERT INTO sports_store VALUES (15, "helmets", 56, "49.99",34);
+
+SELECT * FROM sports_store ORDER BY price;
+
+SELECT name, SUM(count) FROM sports_store GROUP BY name;
+
+SELECT name, SUM(count*price) FROM sports_store GROUP BY name;
