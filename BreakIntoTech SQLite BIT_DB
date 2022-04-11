@@ -45,6 +45,41 @@ WHERE FebSales.quantity >2;
 SELECT Product, sum(quantity) FROM FebSales
 WHERE location LIKE '%los angeles%' GROUP BY Product;
 
+/* How many locations are there in New York that sold more than 1 product in January? = 133*/
+SELECT  count(DISTINCT location) FROM JanSales
+WHERE location LIKE "%NY%" AND quantity > 1;
+
+/* How many of each type of headphone were sold in February? */
+SELECT SUM(Quantity) AS quantity, Product
+FROM FebSales
+WHERE Product LIKE "%headphones%"
+GROUP BY Product;
+
+/* What was the average amount spent per account in February? = $181.46 */
+SELECT SUM(quantity*price)/COUNT(customers.acctnum)
+FROM FebSales
+JOIN customers
+ON FebSales.orderID = customers.order_id;
+
+OR
+
+SELECT AVG(quantity*price)
+FROM FebSales
+JOIN customers
+ON FebSales.orderID = customers.order_id;
+
+/* What was the average quantity of products purchased per account in February? */
+SELECT SUM(quantity)/COUNT(customers.acctnum) FROM FebSales
+JOIN customers ON FebSales.orderID = customers.order_id;
+
+/* Which product brought in the most revenue in January and how much revenue did it bring in total? */
+SELECT Product, SUM(quantity*price) AS Revenue FROM JanSales
+GROUP BY Product 
+ORDER BY Revenue DESC
+LIMIT 1;
+
+
+
 /* other search queries */
 Orders placed between February 13 and February 17, 2019:
 select orderdate from febsales where orderdate between '02/13/19 00:00' and '02/18/19 00:00';
