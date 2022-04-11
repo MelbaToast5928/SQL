@@ -40,3 +40,20 @@ JOIN customers
 ON FebSales.orderID = customers.order_id
 WHERE FebSales.quantity >2;
 /* Customer count = 890, AVG spend for them is $3.99 */
+
+/* List all the products sold in Los Angeles in February, and include how many of each were sold. */
+SELECT Product, sum(quantity) FROM FebSales
+WHERE location LIKE '%los angeles%' GROUP BY Product;
+
+/* other search queries */
+Orders placed between February 13 and February 17, 2019:
+select orderdate from febsales where orderdate between '02/13/19 00:00' and '02/18/19 00:00';
+
+Find address for order placed at a specific date and time:
+select location from febsales where orderdate = '02/18/19 01:35';
+
+Total # of orders on February 18, 2019:
+select sum(quantity) from febsales where orderdate like '02/18/19%';
+
+SELECT DISTINCT Product FROM FebSales WHERE Product LIKE '%Batteries%';
+SELECT DISTINCT Product , Price FROM FebSales WHERE price LIKE '%.99%';
