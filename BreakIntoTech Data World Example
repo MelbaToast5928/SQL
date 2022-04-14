@@ -1,0 +1,7 @@
+# Find the account numbers, the count of order IDs, product, quantity, price, order date, and location for all orders that were placed in February.
+
+SELECT customers.acctnum, COUNT(customers.order_id) AS Num_Orders, FebSales.Product, FebSales.Quantity, FebSales.price, FebSales.orderdate, FebSales.location
+FROM FebSales
+JOIN customers
+ON customers.order_id = FebSales.orderID
+GROUP BY FebSales.Product, FebSales.Quantity, FebSales.price, FebSales.orderdate, FebSales.location;
